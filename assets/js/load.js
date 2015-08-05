@@ -18,7 +18,7 @@ GAME.Load.prototype.preload = function(){
 
 		this.load.spritesheet('play','assets/images/play.png',100,80);
 		this.load.image('pause','assets/images/pause.png');
-		this.load.image('title', 'assets/images/title.png')
+		this.load.image('title', 'assets/images/title.png');
 		this.load.image('reset','assets/images/refresh.png');
 		this.load.image('arrow','assets/images/arrows.png');
 		this.load.spritesheet('blocks','assets/images/blocks.png',30,30);
