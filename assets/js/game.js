@@ -21,11 +21,12 @@ var KEYDOWN;
 
 GAME.Play.prototype.create =function(){
 
+console.log('works');
 		this.bck = this.game.add.sprite(0,0,'bck');
     this.game.world.bounds.x = 21;
     this.game.world.bounds.y = 0;
-    this.game.world.bounds.width = 280;
-    this.game.world.bounds.height = 590;
+    this.game.world.bounds.width = 1000;
+    this.game.world.bounds.height = 1200;
 
 		this.focusblock = new Block(this.game,this.game.world.centerX,-40,this.chooseblock(),this.choosecolor(),1);
     this.nextblocktype = this.chooseblock();
@@ -58,17 +59,12 @@ GAME.Play.prototype.create =function(){
 		if(this.game.paused==false)
 
 		{
-
 			this.game.paused = true;
-
 		}
 
 		else
-
 		{ this.game.paused = false;
-
 		}
-
 	}
 
 
@@ -104,9 +100,11 @@ GAME.Play.prototype.create =function(){
 
 	}
 
-
-
 	GAME.Play.prototype.choosecolor = function(){
   return Math.floor(Math.random()*5);
 
+}
+
+GAME.Play.prototype.update = function(){
+	console.log('update')
 }

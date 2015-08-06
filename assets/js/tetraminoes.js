@@ -101,7 +101,5 @@ Block.prototype.setupsquares = function(){
 
 		this.squares[i].scale.setTo(this.scale,this.scale)
 
-		this.squares[i].collideWorldBounds = true;
-
 		}
 	}
