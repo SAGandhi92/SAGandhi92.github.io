@@ -102,4 +102,26 @@ Block.prototype.setupsquares = function(){
 		this.squares[i].scale.setTo(this.scale,this.scale)
 
 		}
+	};
+
+Block.prototype.rotatecoll = function(oldsquares){
+		var arr = this.getsrotated();
+		var len = oldasquare.length;
+
+		for(var i=0; i<4; i++){
+			if ((arr[i*2] < this.game.world.bounds.x) || (arr[i*2] > this.game.world.bounds.width))
+			return true;
+
+			if(arr[i*2 + 1] . this.game.world.bounds.height)
+			return true;
+
+			for (var j=0 ; j<len; j++;){
+				if ((Math.abs(arr[i*2]- oldsquares[j].x) < width) && (Math.abs(arr[i*2 +1 ] - oldsquares[j].y) < height)){
+					return true;
+				}
+			}
+		}
+
+		return false;
 	}
+}
