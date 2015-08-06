@@ -30,8 +30,6 @@ console.log('works');
     this.game.world.bounds.height = 1200;
 
 		theme = this.add.audio('theme');
-		console.log('sound')
-    // game.sound.setDecodedCallback([theme ], start, this);
 
 		this.focusblock = new Block(this.game,this.game.world.centerX,-40,this.chooseblock(),this.choosecolor(),1);
     this.nextblocktype = this.chooseblock();
@@ -88,17 +86,11 @@ console.log('works');
 		switch(x){
 
 			case 0 : return 'o';
-
 			case 1 : return 't';
-
 			case 2 : return 'l';
-
 			case 3 : return 'j';
-
 			case 4 : return 'i';
-
 			case 5 : return 's';
-
 			case 6 : return 'z';
 
 		}
@@ -112,4 +104,25 @@ console.log('works');
 
 GAME.Play.prototype.update = function(){
 	console.log('update')
+	if(this.game.time.now > force_down){
+		if (this.focusblock.wallcollid != true)
+			this.focusblock.move('down');
+		else{
+			for (var i=0; i<4; i++){
+				oldsquares.push(this.focusblock.squares[i]);
+			}
+			this.focusblock = new Block (this.game.world.centerX, -40, this.nextblocktype, this.nextblockcolor, 1);
+			this.nextblocktype = this.chooseblock();
+			this.nextblockcolor= this.choosecolor();
+
+			for(var i=0; i<4; i++){
+				this.nextblock.squares[i].destroy();
+			}
+			this.nextblock = new Block(this.game, 330, 271, this.nextblocktype, this.nextblockcolor, 0.7);
+
+			if(this.focusblock.wallcollide(oldsquares, 'down')== true{this.game.state.start('Lose');})
+		}
+		this.checkcompletedlines();
+		// this.scoretextmain.setText(score);
+	}
 }
