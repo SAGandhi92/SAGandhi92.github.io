@@ -11,6 +11,7 @@ var squaresinrow = new Array();
 var change_rot_time = 0;
 var force_down = 0;
 var slide_time = 0;
+var theme;
 
 var KEYLEFT;
 var KEYRIGHT;
@@ -27,6 +28,10 @@ console.log('works');
     this.game.world.bounds.y = 0;
     this.game.world.bounds.width = 1000;
     this.game.world.bounds.height = 1200;
+
+		theme = this.add.audio('theme');
+		console.log('sound')
+    // game.sound.setDecodedCallback([theme ], start, this);
 
 		this.focusblock = new Block(this.game,this.game.world.centerX,-40,this.chooseblock(),this.choosecolor(),1);
     this.nextblocktype = this.chooseblock();
