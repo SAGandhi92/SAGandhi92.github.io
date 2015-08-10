@@ -29,7 +29,7 @@ console.log('works');
 
 		// theme = this.add.audio('theme');
 
-		this.focusblock = new Block(this.game,this.game.world.centerX,-40,this.chooseblock(),this.choosecolor(),1);
+		this.focusblock = new Block(this.game, this.game.world.centerX,-40,this.chooseblock(),this.choosecolor(),1);
     this.nextblocktype = this.chooseblock();
     this.nextblockcolor = this.choosecolor();
     this.nextblock = new Block(this.game, 330, 271,this.nextblocktype,this.nextblockcolor,0.7);
@@ -78,6 +78,7 @@ console.log('works');
 
 
 	GAME.Play.prototype.chooseblock = function(){
+		console.log('random block')
 
 		var x = Math.floor(Math.random()*7);
 
@@ -101,6 +102,7 @@ GAME.Play.prototype.choosecolor = function(){
 }
 
 GAME.Play.prototype.checkcompletedlines = function(){
+	console.log('completed')
 
     for(var i=0;i<20;i++){
 
@@ -114,7 +116,21 @@ GAME.Play.prototype.checkcompletedlines = function(){
 			  row = (oldsquares[i].y -top)/height;
           squaresinrow[row]++;
 				}
-
+				// console.log('block')
+				//
+				// var x = Math.floor(Math.random()*7);
+				//
+				// switch(x){
+				//
+				// 	case 0 : return 'o';
+				// 	case 1 : return 't';
+				// 	case 2 : return 'l';
+				// 	case 3 : return 'j';
+				// 	case 4 : return 'i';
+				// 	case 5 : return 's';
+				// 	case 6 : return 'z';
+				//
+				// }
      for(var i=0;i<20;i++){
 
        if(squaresinrow[i]==9){
@@ -157,19 +173,23 @@ GAME.Play.prototype.checkcompletedlines = function(){
 GAME.Play.prototype.update = function(){
 	console.log('update')
 	if(this.game.time.now > force_down){
-		if (this.focusblock.wallcollide != true)
+		console.log('collide')
+		if (this.focusblock.wallcollide(oldsquares,'down')!= true)
 			this.focusblock.move('down');
 		else{
 			for (var i=0; i<4; i++){
 				oldsquares.push(this.focusblock.squares[i]);
 			}
-			this.focusblock = new Block (this.game.world.centerX, -40, this.nextblocktype, this.nextblockcolor, 1);
+
+			console.log('new block')
+			this.focusblock = new Block(this.game, this.game.world.centerX, -40, this.nextblocktype, this.nextblockcolor, 1);
 			this.nextblocktype = this.chooseblock();
 			this.nextblockcolor= this.choosecolor();
 
 			for(var i=0; i<4; i++){
 				this.nextblock.squares[i].destroy();
 			}
+
 			this.nextblock = new Block(this.game, 330, 271, this.nextblocktype, this.nextblockcolor, 0.7);
 
 			if(this.focusblock.wallcollide(oldsquares,'down')== true) {this.game.state.start('Lose');}
@@ -188,39 +208,39 @@ GAME.Play.prototype.update = function(){
 
 }
 
-if(KEYRIGHT.isDown){
+ if(KEYRIGHT.isDown){
 
-if(this.game.time.now>change_rot_time){
+  if(this.game.time.now>change_rot_time){
 
-if(this.focusblock.wallcollide(oldsquares,'right')!=true)	this.focusblock.move('right');
+     if(this.focusblock.wallcollide(oldsquares,'right')!=true)	this.focusblock.move('right');
 
-change_rot_time = this.game.time.now + 100;
+     change_rot_time = this.game.time.now + 100;
 
-}
+   }
 
-}
+ }
 
 if(KEYLEFT.isDown){
 
-if(this.game.time.now>change_rot_time){
+  if(this.game.time.now>change_rot_time){
 
-if(this.focusblock.wallcollide(oldsquares,'left')!=true)	this.focusblock.move('left');
+    if(this.focusblock.wallcollide(oldsquares,'left')!=true)	this.focusblock.move('left');
 
-change_rot_time = this.game.time.now + 100;
+    change_rot_time = this.game.time.now + 100;
 
-}
-
-}
-
-if(KEYUP.isDown){
-
-if(this.game.time.now>change_rot_time){
-
-if(this.focusblock.rotatecollide(oldsquares)!=true)		this.focusblock.rotate();
-
-change_rot_time = this.game.time.now + 100;
+   }
 
 }
+
+ if(KEYUP.isDown){
+
+  if(this.game.time.now>change_rot_time){
+
+      if(this.focusblock.rotatecoll(oldsquares)!=true)		this.focusblock.rotate();
+
+    change_rot_time = this.game.time.now + 100;
+
+  }
 
 }
 

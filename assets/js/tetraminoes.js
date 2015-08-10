@@ -92,7 +92,7 @@ Block.prototype.setupsquares = function(){
 						break;
 
 		}
-
+     console.log('world bounds')
 		for(var i=0;i<this.squares.length;i++){
 
 		this.squares[i].anchor.setTo(0.5,0.5);
@@ -185,6 +185,7 @@ Block.prototype.getsrotated = function(){
 	}
 
 Block.prototype.wallcollide = function(oldsquares, dir){
+	console.log('wallcollide')
 			len = oldsquares.length;
 
 			if(len==0){
@@ -221,7 +222,7 @@ Block.prototype.wallcollide = function(oldsquares, dir){
 
 				case 'right' : 	for(var i=0;i<4;i++){
 
-				for(var j=0;j<len;j++){
+				 for(var j=0;j<len;j++){
 
 					if(this.squares[i].x+md>this.game.world.bounds.width||(this.squares[i].x<oldsquares[j].x&&this.squares[i].x+3*md>oldsquares[j].x&&this.squares[i].y==oldsquares[j].y)) return true;
 
@@ -262,4 +263,4 @@ Block.prototype.rotatecoll = function(oldsquares){
 		}
 
 		return false;
-	}
+	};
