@@ -247,7 +247,7 @@ Block.prototype.wallcollide = function(oldsquares, dir){
 
 Block.prototype.rotatecoll = function(oldsquares){
 		var arr = this.getsrotated();
-		var len = oldsquare.length;
+		var len = oldsquares.length;
 		for(var i=0; i<4; i++){
 			if ((arr[i*2] < this.game.world.bounds.x) || (arr[i*2] > this.game.world.bounds.width))
 			return true;
