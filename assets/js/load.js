@@ -1,9 +1,9 @@
 var GAME = GAME || {};
 
-GAME.width = 1200;
-GAME.height= 1600;
+GAME.width = 400;
+GAME.height= 600;
 GAME.score = 0;
-GAME.force_down_max_time = 500;
+var force_down_max_time = 500;
 var width =30;
 var height = 30;
 

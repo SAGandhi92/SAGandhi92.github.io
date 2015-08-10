@@ -1,7 +1,7 @@
 var GAME = GAME || {};
 
-GAME.width = 1200,
-GAME.height = 1600;
+GAME.width = 400,
+GAME.height = 600;
 GAME.parent = document.querySelector('#game')
 
 GAME.game = new Phaser.Game(GAME.width, GAME.height,Phaser.AUTO, GAME.parent);

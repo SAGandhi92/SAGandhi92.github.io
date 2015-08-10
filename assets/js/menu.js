@@ -10,8 +10,8 @@ GAME.MainMenu.prototype.create = function(){
 
 		this.game.world.bounds.x = 0;
     this.game.world.bounds.y = 0;
-    this.game.world.bounds.width = 1200;
-    this.game.world.bounds.height = 1600;
+    this.game.world.bounds.width = 400;
+    this.game.world.bounds.height = 600;
     this.playbutton = this.add.button(this.game.world.centerX, this.game.world.centerY-40,'play',this.playclicked,this,0.5,0,0.5);
     this.playbutton.anchor.setTo(0.5,0.5);
     // this.tweenplay = this.game.add.tween(this.playbutton).to({y:300},1000,Phaser.Easing.Sinusoidal.InOut,true,0,100,true);
@@ -47,8 +47,8 @@ GAME.LoseScreen.prototype.create = function(){
 
 		this.game.world.bounds.x = 0;
     this.game.world.bounds.y = 0;
-    this.game.world.bounds.width = 1200;
-    this.game.world.bounds.height = 1600;
+    this.game.world.bounds.width = 400;
+    this.game.world.bounds.height = 600;
     this.lose = this.game.add.sprite(this.game.world.centerX,this.game.world.centerY,'lose');
     this.lose.anchor.setTo(0.5,0.5);
     this.playbutton = this.add.button(this.game.world.centerX, 40, 'play',this.playclicked,this,0.5,0,0.5);
@@ -76,8 +76,8 @@ GAME.WinScreen.prototype.create= function(){
 
 		this.game.world.bounds.x = 0;
     this.game.world.bounds.y = 0;
-    this.game.world.bounds.width = 1200;
-    this.game.world.bounds.height= 1600;
+    this.game.world.bounds.width = 400;
+    this.game.world.bounds.height= 600;
 
 		this.winimage = this.game.add.sprite(0,0,'win');
     this.playbutton = this.add.button(this.game.world.centerX, 500, 'play',this.playclicked,this,1,0,2);
